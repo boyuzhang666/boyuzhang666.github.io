@@ -61,6 +61,83 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-基于Stellar.js的视差滚动效果" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/10/基于Stellar.js的视差滚动效果/" class="article-date">
+  <time datetime="2017-11-10T14:05:11.855Z" itemprop="datePublished">2017-11-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#视差滚动效果</p>
+<p>视差滚动（Parallax Scrolling）指网页滚动过程中，多层次的元素进行不同程度的移动，视觉上形成立体运动效果的网页展示技术</p>
+<p>主要核心就是前景和背景以不同的速度移动，从而创造出3D效果。 这种效果可以给网站一个很好的补充。</p>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><p>视差滚动效果酷炫，适合于个性展示的场合。</p>
+<p>视差滚动徐徐展开，适合于娓娓道来，讲故事的场合。</p>
+<p>视差滚动容易迷航，需要具备较强的导航功能。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>传统的网页的文字、图片、背景都是一起按照相同方向相同速度滚动的，而视差滚动则是在滚动的时候，内容和多层次的背景实现或不同速度，或不同方向的运动。</p>
+<p>有的时候也可以加上一些透明度、大小的动画来优化显示。 </p>
+<p>利用background-attachment属性实现。</p>
+<p><strong>background-attachment: scroll(Default) || fixed || local</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background-attachment</span><span class="selector-pseudo">:fixed</span>; </div><div class="line"><span class="comment">/*背景图片相对视口固定*/</span></div><div class="line"><span class="selector-tag">background-attachment</span><span class="selector-pseudo">:scroll</span>; </div><div class="line"><span class="comment">/*背景图片相对于元素本身固定*/</span></div><div class="line"><span class="selector-tag">background-attachment</span><span class="selector-pseudo">:local</span>; </div><div class="line"><span class="comment">/*背景图片相对于元素内容固定--随着元素的内容滚动*/</span></div></pre></td></tr></table></figure>
+<h2 id="Stellar-js是什么？"><a href="#Stellar-js是什么？" class="headerlink" title="Stellar.js是什么？"></a>Stellar.js是什么？</h2><p><a href="https://github.com/markdalgleish/stellar.js/" target="_blank" rel="external">stellar.js</a> 是一个 jQuery插件，能很容易地给网站添加视差滚动效果。 尽管已经停止了维护，但它非常稳定，与最新版本的jQuery兼容，很多开发者也在使用它。 这个插件在<a href="http://plugins.jquery.com/" target="_blank" rel="external">jQuery插件库</a>里很流行。</p>
+<p><a href="http://markdalgleish.com/projects/stellar.js/" target="_blank" rel="external">http://markdalgleish.com/projects/stellar.js/</a>   官网</p>
+<h3 id="引用-js包"><a href="#引用-js包" class="headerlink" title="引用 js包"></a>引用 js包</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"path/to/jquery/jquery.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"path/to/jquery.stellar.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h3 id="引用html"><a href="#引用html" class="headerlink" title="引用html"></a>引用html</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span> <span class="attr">id</span>=<span class="string">"content1"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>TEXT HERE<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span> <span class="attr">id</span>=<span class="string">"content2"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>TEXT HERE<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span> <span class="attr">id</span>=<span class="string">"content3"</span> <span class="attr">data-stellar-background-ratio</span>=<span class="string">"0.5"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>TEXT HERE<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span> <span class="attr">id</span>=<span class="string">"content4"</span> <span class="attr">data-stellar-background-ratio</span>=<span class="string">"0.5"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>TEXT HERE<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span> <span class="attr">id</span>=<span class="string">"content5"</span> <span class="attr">data-stellar-background-ratio</span>=<span class="string">"0.5"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>TEXT HERE<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span> <span class="attr">id</span>=<span class="string">"content6"</span> <span class="attr">data-stellar-background-ratio</span>=<span class="string">"0.5"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>TEXT HERE<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="引入CSS"><a href="#引入CSS" class="headerlink" title="引入CSS"></a>引入CSS</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">20px</span>;</div><div class="line">    <span class="attribute">color</span>: white;</div><div class="line">    <span class="attribute">text-shadow</span>: <span class="number">0</span> <span class="number">1px</span> <span class="number">0</span> black, <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> black;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">0.5em</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.content</span> &#123;</div><div class="line">    <span class="attribute">background-attachment</span>: fixed;</div><div class="line">    <span class="attribute">height</span>: <span class="number">400px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#content1</span> &#123;</div><div class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"xxx.jpg"</span>);</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#content2</span> &#123;</div><div class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"xxx.jpg"</span>);</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#content3</span> &#123;</div><div class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"xxx.jpg"</span>);</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#content4</span> &#123;</div><div class="line">   <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"xxx.jpg"</span>);</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#content5</span> &#123;</div><div class="line">   background-image: url("xxx.jpg");");</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#content6</span> &#123;</div><div class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"xxx.jpg"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="js调用函数"><a href="#js调用函数" class="headerlink" title="js调用函数"></a>js调用函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$.stellar(&#123;</div><div class="line">    horizontalScrolling: <span class="literal">false</span>,</div><div class="line">    responsive: <span class="literal">true</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="详细参数"><a href="#详细参数" class="headerlink" title="详细参数"></a>详细参数</h3><p><code>data-stellar-ratio</code>属性定义该元素相对页面滚动速度的比例:0.5表示元素滚动速度为页面滚动速度的50%。</p>
+<p><code>data-stellar-background-ratio</code>:表示背景图片滚动速度占页面滚动速度的比率。</p>
+<p>-未引入Stellar.js时,<code>background-attachment:fixed</code>的元素背景图片始终相对于视口固定;</p>
+<p>-引入Stellar.js时,<br> <code>data-stellar-ratio</code>属性定义固定定位元素相对页面的滚动速度;<br> <code>data-stellar-background-ratio</code>属性表示:<br> <code>Stellar.js</code>库在页面开始滚动时,会将该元素的<strong>背景图片</strong>,重新定位。<br> 值为0.5表示将该背景图片固定到body的top:50%,页面滚动时,背景图片也随之滚动,滚动速率为页面滚动速度的50%。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>horizontalScrolling 和 verticalScrolling</td>
+<td>该配置项用来设置视差效果的方向。horizontalScrolling设置水平方向，verticalScro设置垂直方向， 为布尔值，默认为true</td>
+</tr>
+<tr>
+<td>responsive</td>
+<td>该配置项用来制定load或者resize时间触发时是否刷新页面，其值为布尔值，默认为false</td>
+</tr>
+<tr>
+<td>hideDistantElements</td>
+<td>该配置项用来设置移出视线的元素是否隐藏，其值为布尔值，若不想隐藏则设置为false`</td>
+</tr>
+<tr>
+<td>data-stellar-ratio=”2”</td>
+<td>定义了此元素针对页面滚动的速度比率，比如，0.5为页面滚动的50%，2为页面滚动的200%，所以数值越大，你可以看到页面元素滚动速度越快。</td>
+</tr>
+<tr>
+<td>data-stellar-background-ratio</td>
+<td>该配置项用在单个元素中，其值为一个正数，用来改变被设置元素的影响速度。 例如 值为0.3时，则表示背景的滚动速度为正常滚动速度的0.3倍。如果值为小数时最好在样式表中设置</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/10/基于Stellar.js的视差滚动效果/" data-id="cj9yc657q000jeoueypmsnj1x" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/10/28/hello-world/" class="article-date">
@@ -96,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/28/hello-world/" data-id="cj9bd8nfs0001goueod3rdupa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/28/hello-world/" data-id="cj9yc656v0004eouea08t9ija" class="article-share-link">Share</a>
       
       
     </footer>
@@ -137,7 +214,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/canvas/" data-id="cj9bd8nfk0000goue065scty5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/canvas/" data-id="cj9yc656v0000eouee387ptxr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/心情/">心情</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
@@ -562,7 +639,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/28/H5/" data-id="cj9bd8nfy0004goue190cf9xs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/28/H5/" data-id="cj9yc656v0001eoueg360haqw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/心情/">心情</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
@@ -612,7 +689,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
     </div>
   </div>
 
@@ -623,6 +700,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/11/10/基于Stellar.js的视差滚动效果/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2017/10/28/hello-world/">Hello World</a>
